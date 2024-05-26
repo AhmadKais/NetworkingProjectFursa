@@ -15,9 +15,9 @@ Default gateway IP
 DHCP IP allocation sys-logs
 -------------------
 ahmadkais@kais-dell-59:~/PycharmProjects/NetworkingProjectFursa$ grep DHCP /var/log/syslog
-2024-05-26T13:08:37.571406+00:00 ip-10-0-0-183 dhcpcd[436]: enX0: soliciting a DHCP lease
-2024-05-26T13:08:37.571494+00:00 ip-10-0-0-183 systemd-networkd[456]: enX0: DHCPv4 address
-10.0.0.183/24, gateway 10.0.0.1 acquired from 10.0.0.1
+May 26 00:00:27 kais-dell-59 NetworkManager[664]: <info>  [1716670827.7429] dhcp4 (enp3s0): canceled DHCP transaction
+May 26 00:00:27 kais-dell-59 NetworkManager[664]: <info>  [1716670827.7440] dhcp6 (enp3s0): canceled DHCP transaction
+May 26 08:04:27 kais-dell-59 NetworkManager[673]: <info>  [1716699867.2552] dhcp-init: Using DHCP client 'internal'
 
 
 
