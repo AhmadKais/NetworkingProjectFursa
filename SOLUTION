@@ -14,15 +14,79 @@ Default gateway IP
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+2024-05-26T13:08:37.571406+00:00 ip-10-0-0-183 dhcpcd[436]: enX0: soliciting a DHCP lease
+2024-05-26T13:08:37.571494+00:00 ip-10-0-0-183 systemd-networkd[456]: enX0: DHCPv4 address
+10.0.0.183/24, gateway 10.0.0.1 acquired from 10.0.0.1
+
 
 
 
 Public to private num of hops
 -------------------
-<answer-here>
+Packets are not reaching the private instance (all hops show * * *),
+indicating not a successful route from public to private instance.
+
+the outpot :
+
+ubuntu@ip-10-0-0-183:~$ traceroute 10.0.1.142
+traceroute to 10.0.1.142 (10.0.1.142), 30 hops max, 60 byte packets
+ 1  * * *
+ 2  * * *
+ 3  * * *
+ 4  * * *
+ 5  * * *
+ 6  * * *
+ 7  * * *
+ 8  * * *
+ 9  * * *
+10  * * *
+11  * * *
+12  * * *
+13  * * *
+14  * * *
+15  * * *
+16  * * *
+17  * * *
+18  * * *
+19  * * *
+20  * * *
+21  * * *
+22  * * *
+23  * * *
+24  * * *
+25  * * *
+26  * * *
+27  * * *
+28  * * *
+29  * * *
+30  * * *
+
 
 
 DNS queries from the private instance
 -------------------
-<answer-here>
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	www.google.com
+Address: 142.251.163.103
+Name:	www.google.com
+Address: 142.251.163.104
+Name:	www.google.com
+Address: 142.251.163.105
+Name:	www.google.com
+Address: 142.251.163.106
+Name:	www.google.com
+Address: 142.251.163.147
+Name:	www.google.com
+Address: 142.251.163.99
+Name:	www.google.com
+Address: 2607:f8b0:4004:c19::6a
+Name:	www.google.com
+Address: 2607:f8b0:4004:c19::93
+Name:	www.google.com
+Address: 2607:f8b0:4004:c19::67
+Name:	www.google.com
+Address: 2607:f8b0:4004:c19::68
+
