@@ -27,10 +27,9 @@ if [ $# -eq 2 ]; then
     exit $?
 fi
 
-# If three arguments are provided, connects to the priivate intance through the public instance and execute the commandl
+# If three arguments are provided, connect to the private instance through the public instance and execute the command
 if [ $# -eq 3 ]; then
-    echo " we just  got three arguments "
-    ssh -i "$KEY_PATH" -o "ProxyCommand=ssh -i $KEY_PATH -W %h:%p ubuntu@$1" ubuntu@"$2" "$3"
+    ssh -i "$KEY_PATH" -J ubuntu@"$1" ubuntu@"$2" "$3"
     exit $?
 fi
 
