@@ -38,7 +38,10 @@ echo -e "-----------------------------------------------------------------------
 
 bash bastion_connect.sh $PUBLIC_IP $PRIVATE_IP ls &> /dev/null
 
+
 EXIT_CODE=$?
+
+echo $EXIT_CODE
 
 if [ "$EXIT_CODE" -ne "5" ]
 then
