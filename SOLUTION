@@ -14,6 +14,7 @@ Default gateway IP
 
 DHCP IP allocation sys-logs
 -------------------
+ahmadkais@kais-dell-59:~/PycharmProjects/NetworkingProjectFursa$ grep DHCP /var/log/syslog
 2024-05-26T13:08:37.571406+00:00 ip-10-0-0-183 dhcpcd[436]: enX0: soliciting a DHCP lease
 2024-05-26T13:08:37.571494+00:00 ip-10-0-0-183 systemd-networkd[456]: enX0: DHCPv4 address
 10.0.0.183/24, gateway 10.0.0.1 acquired from 10.0.0.1
