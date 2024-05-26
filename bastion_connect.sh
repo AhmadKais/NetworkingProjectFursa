@@ -21,9 +21,8 @@ fi
 
 # If two arguments are provided, connect to the privat instanc through the public instance hello llllll
 if [ $# -eq 2 ]; then
-    echo " i am in the two arguments case"
-    ssh -i "$KEY_PATH" ubuntu@"$1"
-    ssh -i "$KEY_PATH" ubuntu@"$2"
+
+    ssh -i "$KEY_PATH" ubuntu@"$1" "ssh -i key.pem ubuntu@$2"
     exit $?
 fi
 
@@ -31,10 +30,8 @@ KNOWN_HOSTS_FILE=$(mktemp)
 
 # If three arguments are provided, connect to the private instance throughthe public instance and execute the command
 if [ $# -eq 3 ]; then
-    ssh -i "$KEY_PATH" -o ProxyCommand="ssh -i $KEY_PATH -o UserKnownHostsFile=$KNOWN_HOSTS_FILE -W %h:%p ubuntu@$1" -o UserKnownHostsFile="$KNOWN_HOSTS_FILE" ubuntu@"$2" "$3"
-    exit $?
+ssh -i "$KEY_PATH" ubuntu@"$1" "ssh -i key.pem ubuntu@$2 '$3'"
 fi
 
-echo " whaat ?"
 # If none of the above conditions are met, exit with code 5
 exit 5
