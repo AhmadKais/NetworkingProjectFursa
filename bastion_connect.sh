@@ -12,7 +12,7 @@ if [ $# -lt 1 ]; then
     exit 5
 fi
 
-# If only one argument is provided,connect to the public instance
+# If only one argument is  provided,connect to the public instance
 if [ $# -eq 1 ]; then
     echo " i am in the one arguments case"
     ssh -i "$KEY_PATH" ubuntu@"$1"
