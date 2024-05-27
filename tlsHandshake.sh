@@ -6,7 +6,7 @@ session_id=$(echo $response | jq -r '.sessionID')
 server_cert=$(echo $response | jq -r '.serverCert')
 
 # Step 2: Verify Server Certificate
-openssl verify -CAfile ~/Downloads/cert-ca-aws.pem $server_cert
+openssl verify -CAfile ~/tls_webserver/cert-ca-aws.pem $server_cert
 if [ $? -ne 0 ]; then
     echo "Server Certificate is invalid."
     exit 5
