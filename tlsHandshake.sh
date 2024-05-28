@@ -23,6 +23,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+#
 # Extract session ID and server certificate from the response
 SESSION_ID=$(echo "$CLIENT_HELLO_RESPONSE" | jq -r '.sessionID')
 SERVER_CERT=$(echo "$CLIENT_HELLO_RESPONSE" | jq -r '.serverCert')
