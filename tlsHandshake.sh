@@ -9,7 +9,7 @@ fi
 SERVER_IP=$1
 
 #Send Client Hello
-echo "Sending Client Hello to server..."
+#"Sending Client Hello to server..."
 CLIENT_HELLO_RESPONSE=$(curl -s -X POST "http://$SERVER_IP:8080/clienthello" \
     -H "Content-Type: application/json" \
     -d '{
@@ -30,7 +30,7 @@ SERVER_CERT=$(echo "$CLIENT_HELLO_RESPONSE" | jq -r '.serverCert')
 echo "Received Server Hello. Session ID: $SESSION_ID"
 
 #Store and verify server certificate
-echo "Storing and verifying server certificate..."
+# "Storing and verifying server certificate..."
 echo "$SERVER_CERT" > server_cert.pem
 
 # Download CA certificate
@@ -51,7 +51,7 @@ fi
 echo "Server Certificate verified."
 
 #Generate and encrypt master key
-echo "Generating and encrypting master key..."
+#echo "Generating and encrypting master key..."
 MASTER_KEY=$(openssl rand -base64 32)
 echo "$MASTER_KEY" > master_key.txt
 
@@ -89,4 +89,4 @@ if [ "$DECRYPTED_MESSAGE" != "$EXPECTED_MESSAGE" ]; then
     exit 6
 fi
 
-echo "Client-Server TLS handshake has been completed successfully"
+#echo "Client-Server TLS handshake has been completed successfully"
